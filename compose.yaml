@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=bookstore'
+      - 'POSTGRES_PASSWORD=123@Mudar'
+      - 'POSTGRES_USER=postgres'
+    ports:
+      - '56242:5432'
