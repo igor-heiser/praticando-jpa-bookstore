@@ -6,15 +6,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.awt.print.Book;
+import javax.annotation.processing.Generated;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
 @Entity
 @Table(name = "tb_author")
-@Setter
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class AuthorEntity {
@@ -32,6 +32,8 @@ public class AuthorEntity {
     )
     private String name;
 
-    @ManyToMany(mappedBy = "authors")
+    @ManyToMany(
+            mappedBy = "authors"
+    )
     private Set<BookEntity> books = new HashSet<>();
 }

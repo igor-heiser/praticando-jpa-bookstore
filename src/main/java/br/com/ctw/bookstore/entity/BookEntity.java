@@ -19,7 +19,9 @@ import java.util.UUID;
 public class BookEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(
+            strategy = GenerationType.UUID
+    )
     private UUID id;
 
     @Column(
@@ -27,7 +29,7 @@ public class BookEntity {
             unique = true,
             length = 100
     )
-    private String tittle;
+    private String title;
 
     @OneToOne(
             mappedBy = "book",
@@ -36,10 +38,14 @@ public class BookEntity {
     private ReviewEntity review;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "publisher_id")
+    @JoinColumn(
+            name = "publisher_id"
+    )
     private PublisherEntity publisher;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(
+            fetch = FetchType.LAZY
+    )
     @JoinTable(
             name = "tb_book_author",
             joinColumns = @JoinColumn(name = "book_id"),

@@ -6,12 +6,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.awt.print.Book;
 import java.util.UUID;
 
 @Entity
 @Table(name = "tb_review")
-@Setter
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class ReviewEntity {
@@ -24,11 +25,14 @@ public class ReviewEntity {
 
     @Column(
             nullable = false,
+            unique = true,
             length = 250
     )
     private String comment;
 
     @OneToOne
-    @JoinColumn(name = "book_id")
+    @JoinColumn(
+            name = "book_id"
+    )
     private BookEntity book;
 }
